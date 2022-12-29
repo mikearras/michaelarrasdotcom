@@ -1,7 +1,7 @@
 export class Projectile {
     constructor({position, velocity}, context){
         const image = new Image();
-        image.src = "./projectile2.png";
+        image.src = "./Sprites/projectile.png";
         this.context = context;
         this.frameX = 0;
         this.frameY = 0;
@@ -12,8 +12,8 @@ export class Projectile {
 
         image.onload = ()=>{
             this.image = image;
-            this.width = 34;
-            this.height = 66;
+            this.width = 64;
+            this.height = 64;
             this.position = position;
             this.velocity = velocity;     
         }
