@@ -10,8 +10,6 @@ const enforce = require('express-sslify');
 const database = new Datastore('database.db');
 database.loadDatabase();
 
-
-
 const bodyParser = require('body-parser');
 const { response } = require("express");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //express.json parses incoming JSON strings
 app.use(express.json())
 app.use(express.static('public'))
-app.use(enforce.HTTPS({ trustProtoHeader: true }))
+//app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
