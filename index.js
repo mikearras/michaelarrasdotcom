@@ -4,6 +4,8 @@ const app = express();
 const path = require('path');
 const fs = require('fs');
 const Datastore = require('nedb');
+const http = require('http');
+const enforce = require('express-sslify');
 
 const database = new Datastore('database.db');
 database.loadDatabase();
@@ -17,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //express.json parses incoming JSON strings
 app.use(express.json())
 app.use(express.static('public'))
+app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));

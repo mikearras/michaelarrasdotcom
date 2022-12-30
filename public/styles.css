@@ -28,6 +28,9 @@ body{
   position: relative;
   display: none;
   border-radius: 20px;
+  background-color: rgb(208, 235, 241);
+  width: 900px;
+  height: 600px;  
 }
 
 .contentToggle{
@@ -36,18 +39,16 @@ body{
 }
 
 #about{
-  background-color: rgb(208, 235, 241);
-  width: 900px;
-  height: 600px;
+
 }
 
-.aboutText{
+.sectionText{
   font-family: Martian;
   margin: 1em;
   color:rgb(80, 80, 88); 
 }
 
-#aboutMeTitle{
+#sectionTitle{
   background-color: rgb(80, 80, 88);
   color: rgb(208, 235, 241); 
   font-family: Martian;
@@ -136,8 +137,6 @@ h1{
   left: 300px;
   top: 35px;
 }
-
-
 
 
 .mainLinks{
