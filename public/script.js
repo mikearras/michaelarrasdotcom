@@ -24,6 +24,7 @@ let gameIsOn = true;
 let aboutIsOn = false;
 let contentOn = false;
 let gameLoopRunning = true;
+let instruct = document.querySelector('.keys');
 
 scoreButton.addEventListener('click', ()=>{
     topScores.style.display = 'block';
@@ -85,21 +86,25 @@ function toggleContent(content, buttonFlag){
        
     if(gameIsOn == true && content != canvas){
         setTimeout(() => {
-            console.log("here")
             scoreInfo.classList.add('canvasOff')
             canvas.classList.add('canvasOff')
         }, 500);
         gameLoopRunning = false;
         gameIsOn = false;
+        instruct.style.display = 'none';
 
     }else if (gameIsOn == true && content == canvas){
-        console.log("here");
         scoreInfo.classList.remove('canvasOff');
         canvas.classList.remove('canvasOff');
         
         if(gameLoopRunning == false){
             animate();
             gameLoopRunning = true;
+            if (combinedScore == 0){
+                instruct.style.display = 'block';
+            }else{
+                instruct.style.display = 'none';
+            }
         }else{
             gameLoopRunning = true;
         }
@@ -110,7 +115,7 @@ function toggleContent(content, buttonFlag){
         canvas.classList.remove('canvasOff');
         animate();
         gameLoopRunning = true;
-        console.log("here");
+     
     }
     
 }
@@ -126,7 +131,7 @@ function buttonCheck(buttons, clickedButton){
             button.open = false;
             button.content.classList.remove('contentToggle');            
         }
-        console.log(`${button.name} ${button.open}`);
+        
     }
 }
 
@@ -259,6 +264,9 @@ function animate(){
             return;
         }
         
+        if(combinedScore > 0){
+            instruct.style.display = 'none';
+        }
 
         combinedScore = score + words[0].getScore();
             if(combinedScore < prevScore){
